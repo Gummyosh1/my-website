@@ -30,30 +30,29 @@
   </section>
 
 <script>
-  // On scroll, update classes to animate sections
   window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
-    const viewportHeight = window.innerHeight;
+    const vh = window.innerHeight;
 
     const nameSection = document.getElementById('name-section');
     const projectsSection = document.getElementById('projects-section');
     const aboutSection = document.getElementById('about-section');
 
-    if (scrollY < viewportHeight / 2) {
-      // Show name centered
-      nameSection.classList.remove('offscreen-top', 'offscreen-small-top');
+    if (scrollY < vh / 2) {
+      // Show name, hide others
+      nameSection.classList.remove('offscreen-top');
       projectsSection.classList.add('offscreen-top');
       aboutSection.classList.add('offscreen-top');
-    } else if (scrollY >= viewportHeight / 2 && scrollY < viewportHeight * 1.5) {
-      // Move name up small, show projects centered
-      nameSection.classList.add('offscreen-small-top');
-      projectsSection.classList.remove('offscreen-top', 'offscreen-small-top');
+    } else if (scrollY < vh * 1.5) {
+      // Show projects, hide others
+      nameSection.classList.add('offscreen-top');
+      projectsSection.classList.remove('offscreen-top');
       aboutSection.classList.add('offscreen-top');
     } else {
-      // Move projects up, show about centered
-      nameSection.classList.add('offscreen-small-top');
-      projectsSection.classList.add('offscreen-small-top');
-      aboutSection.classList.remove('offscreen-top', 'offscreen-small-top');
+      // Show about, hide others
+      nameSection.classList.add('offscreen-top');
+      projectsSection.classList.add('offscreen-top');
+      aboutSection.classList.remove('offscreen-top');
     }
   });
 </script>
