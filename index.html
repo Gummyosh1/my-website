@@ -43,6 +43,7 @@
       text-align: center;
       z-index: 100;
       border-bottom: 1px solid #eaeaea;
+      transition: transform 0.5s ease;
     }
     #name {
       font-weight: 900;
@@ -60,6 +61,7 @@
       display: flex;
       justify-content: center;
       gap: 40px;
+      transition: transform 0.5s ease;
     }
     nav a {
       font-weight: 700;
@@ -215,16 +217,20 @@
   </footer>
 
   <script>
-    // Fade out name and fade in section headers on scroll
+    // Fade out name and move header & nav up on scroll,
+    // and fade in section headers
     const nameEl = document.getElementById('name');
     const aboutHeader = document.querySelector('#about-me h2');
     const projectsHeader = document.querySelector('#projects h2');
     const contactHeader = document.querySelector('#contact-me h2');
     const tabs = document.querySelectorAll('nav a');
+    const header = document.querySelector('header');
+    const nav = document.querySelector('nav');
 
     function handleScroll() {
       const scrollY = window.scrollY;
       const fadeOutDistance = 150;
+      const moveDistance = 60; // max px to move header/nav up
 
       // Fade out the name
       if(scrollY < fadeOutDistance){
@@ -233,14 +239,18 @@
         nameEl.style.opacity = 0;
       }
 
-      // Helper to check if element is near viewport center
+      // Move header and nav up proportionally as you scroll
+      const moveUp = Math.min(scrollY, moveDistance);
+      header.style.transform = `translateY(-${moveUp}px)`;
+      nav.style.transform = `translateY(-${moveUp}px)`;
+
+      // Check if section headers are near viewport center
       function isInFocus(el){
         const rect = el.getBoundingClientRect();
         const windowHeight = window.innerHeight || document.documentElement.clientHeight;
         return rect.top < windowHeight/2 && rect.bottom > windowHeight/4;
       }
 
-      // Show section headers if in focus
       [aboutHeader, projectsHeader, contactHeader].forEach(header => {
         if(isInFocus(header)){
           header.classList.add('visible');
@@ -265,4 +275,4 @@
     window.addEventListener('load', handleScroll);
   </script>
 </body>
-</html>
+</
