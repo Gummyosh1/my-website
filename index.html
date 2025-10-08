@@ -3,276 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Connor Lafferty</title>
-  <style>
-    /* Reset & basics */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      color: #222;
-      background: #f9faff;
-      scroll-behavior: smooth;
-    }
-    a {
-      text-decoration: none;
-      color: #2176ff;
-      font-weight: 600;
-    }
-    a:hover {
-      color: #1454cc;
-    }
-
-    /* Container */
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 20px 60px;
-    }
-
-    /* Header section */
-    header {
-      position: sticky;
-      top: 0;
-      background: white;
-      padding: 40px 0 20px;
-      text-align: center;
-      z-index: 100;
-      border-bottom: 1px solid #eaeaea;
-      transition: transform 0.5s ease;
-    }
-    #name {
-      font-weight: 900;
-      font-size: 3rem;
-      color: #0a4dff;
-      transition: opacity 0.5s ease;
-    }
-    #email {
-      font-size: 1.1rem;
-      color: #555;
-      margin-top: 5px;
-    }
-    nav {
-      margin-top: 30px;
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      transition: transform 0.5s ease;
-    }
-    nav a {
-      font-weight: 700;
-      font-size: 1.1rem;
-      padding: 6px 8px;
-      border-bottom: 2px solid transparent;
-      transition: border-color 0.3s ease;
-    }
-    nav a:hover, nav a.active {
-      border-color: #0a4dff;
-    }
-
-    /* Sections */
-    section {
-      min-height: 100vh;
-      padding: 80px 0 60px;
-    }
-
-    h2 {
-      font-weight: 900;
-      font-size: 2.5rem;
-      color: #5a8cff;
-      opacity: 0;
-      transition: opacity 1s ease;
-      margin-bottom: 25px;
-    }
-    h2.visible {
-      opacity: 1;
-    }
-
-    /* About Me */
-    #about-me {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      align-items: center;
-      color: #333;
-    }
-    #about-me img {
-      flex: 1 1 250px;
-      max-width: 250px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(10, 77, 255, 0.15);
-      object-fit: cover;
-      aspect-ratio: 1/1;
-      background: #ccc;
-    }
-    #about-me .bio {
-      flex: 2 1 400px;
-      font-size: 1.1rem;
-      line-height: 1.5;
-    }
-
-    /* Projects */
-    #projects ul {
-      list-style-type: none;
-      padding-left: 0;
-      font-size: 1.2rem;
-      color: #444;
-    }
-    #projects li {
-      margin-bottom: 18px;
-      font-weight: 700;
-      color: #2176ff;
-    }
-
-    /* Contact Me */
-    #contact-me p {
-      font-size: 1.1rem;
-      color: #555;
-      max-width: 600px;
-      margin-bottom: 12px;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 25px 0;
-      color: #888;
-      font-size: 0.9rem;
-      border-top: 1px solid #eaeaea;
-    }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      header {
-        padding: 30px 0 15px;
-      }
-      #name {
-        font-size: 2.2rem;
-      }
-      nav {
-        gap: 25px;
-      }
-      section {
-        padding: 60px 0 40px;
-      }
-      #about-me {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      #about-me img {
-        max-width: 100%;
-        aspect-ratio: auto;
-      }
-      #about-me .bio {
-        flex: 1 1 100%;
-      }
-    }
-  </style>
+  <title>Connor Lafferty Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <header>
-    <div id="name">Connor Lafferty</div>
-    <div id="email">connorlafferty@uconn.edu</div>
-    <nav>
-      <a href="#about-me" class="tab">About Me</a>
-      <a href="#projects" class="tab">Projects</a>
-      <a href="#contact-me" class="tab">Contact Me</a>
-    </nav>
-  </header>
+  <section id="name-section" class="centered-section">
+    <h1>Connor Lafferty</h1>
+  </section>
 
-  <main class="container">
-    <section id="about-me">
-      <h2>About Me</h2>
-      <img src="https://via.placeholder.com/250" alt="Connor Lafferty" />
-      <div class="bio">
-        <p>Hello! I'm Connor Lafferty, a passionate developer and lifelong learner currently studying at UConn. I love creating clean and efficient code, building meaningful projects, and exploring new technologies.</p>
-        <p>When I'm not coding, I enjoy hiking, photography, and diving into science fiction books.</p>
-      </div>
-    </section>
+  <section id="projects-section" class="centered-section offscreen-top">
+    <h1>Projects</h1>
+    <div class="project">
+      <h2>Project One</h2>
+      <p>This is a description of project one. It explains what the project is about and key details.</p>
+    </div>
+    <div class="project">
+      <h2>Project Two</h2>
+      <p>This is a description of project two. It highlights the goals and technologies used.</p>
+    </div>
+  </section>
 
-    <section id="projects">
-      <h2>Projects</h2>
-      <ul>
-        <li>Project 1: Awesome Portfolio Website</li>
-        <li>Project 2: Interactive Data Visualizer</li>
-        <li>Project 3: Mobile App for Daily Productivity</li>
-      </ul>
-    </section>
+  <section id="about-section" class="centered-section offscreen-top">
+    <h1>About Me</h1>
+    <p>Hello! I’m Connor Lafferty, a passionate developer who loves creating elegant and functional web experiences.</p>
+  </section>
 
-    <section id="contact-me">
-      <h2>Contact Me</h2>
-      <p>Email: <a href="mailto:connorlafferty@uconn.edu">connorlafferty@uconn.edu</a></p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/connorlafferty" target="_blank" rel="noopener">linkedin.com/in/connorlafferty</a></p>
-      <p>GitHub: <a href="https://github.com/gummyosh1" target="_blank" rel="noopener">github.com/gummyosh1</a></p>
-    </section>
-  </main>
+<script>
+  // On scroll, update classes to animate sections
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const viewportHeight = window.innerHeight;
 
-  <footer>
-    &copy; 2025 Connor Lafferty
-  </footer>
+    const nameSection = document.getElementById('name-section');
+    const projectsSection = document.getElementById('projects-section');
+    const aboutSection = document.getElementById('about-section');
 
-  <script>
-    // Fade out name and move header & nav up on scroll,
-    // and fade in section headers
-    const nameEl = document.getElementById('name');
-    const aboutHeader = document.querySelector('#about-me h2');
-    const projectsHeader = document.querySelector('#projects h2');
-    const contactHeader = document.querySelector('#contact-me h2');
-    const tabs = document.querySelectorAll('nav a');
-    const header = document.querySelector('header');
-    const nav = document.querySelector('nav');
-
-    function handleScroll() {
-      const scrollY = window.scrollY;
-      const fadeOutDistance = 150;
-      const moveDistance = 60; // max px to move header/nav up
-
-      // Fade out the name
-      if(scrollY < fadeOutDistance){
-        nameEl.style.opacity = 1 - scrollY / fadeOutDistance;
-      } else {
-        nameEl.style.opacity = 0;
-      }
-
-      // Move header and nav up proportionally as you scroll
-      const moveUp = Math.min(scrollY, moveDistance);
-      header.style.transform = `translateY(-${moveUp}px)`;
-      nav.style.transform = `translateY(-${moveUp}px)`;
-
-      // Check if section headers are near viewport center
-      function isInFocus(el){
-        const rect = el.getBoundingClientRect();
-        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-        return rect.top < windowHeight/2 && rect.bottom > windowHeight/4;
-      }
-
-      [aboutHeader, projectsHeader, contactHeader].forEach(header => {
-        if(isInFocus(header)){
-          header.classList.add('visible');
-        } else {
-          header.classList.remove('visible');
-        }
-      });
-
-      // Update nav active tab based on scroll position
-      const sections = ['about-me', 'projects', 'contact-me'];
-      sections.forEach((id, idx) => {
-        const section = document.getElementById(id);
-        const rect = section.getBoundingClientRect();
-        if(rect.top <= window.innerHeight/3 && rect.bottom >= window.innerHeight/3){
-          tabs.forEach(tab => tab.classList.remove('active'));
-          tabs[idx].classList.add('active');
-        }
-      });
+    if (scrollY < viewportHeight / 2) {
+      // Show name centered
+      nameSection.classList.remove('offscreen-top', 'offscreen-small-top');
+      projectsSection.classList.add('offscreen-top');
+      aboutSection.classList.add('offscreen-top');
+    } else if (scrollY >= viewportHeight / 2 && scrollY < viewportHeight * 1.5) {
+      // Move name up small, show projects centered
+      nameSection.classList.add('offscreen-small-top');
+      projectsSection.classList.remove('offscreen-top', 'offscreen-small-top');
+      aboutSection.classList.add('offscreen-top');
+    } else {
+      // Move projects up, show about centered
+      nameSection.classList.add('offscreen-small-top');
+      projectsSection.classList.add('offscreen-small-top');
+      aboutSection.classList.remove('offscreen-top', 'offscreen-small-top');
     }
+  });
+</script>
 
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('load', handleScroll);
-  </script>
 </body>
-</
+</html>
