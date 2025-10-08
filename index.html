@@ -12,7 +12,7 @@
     <h1>Connor Lafferty</h1>
   </section>
 
-  <section id="projects-section" class="centered-section offscreen-top">
+  <section id="projects-section" class="centered-section offscreen-bottom">
     <h1>Projects</h1>
     <div class="project">
       <h2>Project One</h2>
@@ -24,7 +24,7 @@
     </div>
   </section>
 
-  <section id="about-section" class="centered-section offscreen-top">
+  <section id="about-section" class="centered-section offscreen-bottom">
     <h1>About Me</h1>
     <p>Hello! I’m Connor Lafferty, a passionate developer who loves creating elegant and functional web experiences.</p>
   </section>
@@ -39,20 +39,26 @@
     const aboutSection = document.getElementById('about-section');
 
     if (scrollY < vh / 2) {
-      // Show name, hide others
-      nameSection.classList.remove('offscreen-top');
-      projectsSection.classList.add('offscreen-top');
-      aboutSection.classList.add('offscreen-top');
+      // Show name centered
+      nameSection.className = 'centered-section';
+      // projects come from bottom
+      projectsSection.className = 'centered-section offscreen-bottom';
+      // about offscreen bottom as well
+      aboutSection.className = 'centered-section offscreen-bottom';
     } else if (scrollY < vh * 1.5) {
-      // Show projects, hide others
-      nameSection.classList.add('offscreen-top');
-      projectsSection.classList.remove('offscreen-top');
-      aboutSection.classList.add('offscreen-top');
+      // name slides up offscreen-top
+      nameSection.className = 'centered-section offscreen-top';
+      // projects slide in center
+      projectsSection.className = 'centered-section';
+      // about offscreen bottom
+      aboutSection.className = 'centered-section offscreen-bottom';
     } else {
-      // Show about, hide others
-      nameSection.classList.add('offscreen-top');
-      projectsSection.classList.add('offscreen-top');
-      aboutSection.classList.remove('offscreen-top');
+      // name offscreen top
+      nameSection.className = 'centered-section offscreen-top';
+      // projects slide up offscreen top
+      projectsSection.className = 'centered-section offscreen-top';
+      // about slides in center
+      aboutSection.className = 'centered-section';
     }
   });
 </script>
