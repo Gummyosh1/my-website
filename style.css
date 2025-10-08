@@ -1,18 +1,80 @@
-header {
-    position: sticky;
-    top: 0;
-    background: white;
-    padding: 40px 0 20px;
-    text-align: center;
-    z-index: 100;
-    border-bottom: 1px solid #eaeaea;
-    transition: transform 0.5s ease;
-  }
-  
-  /* To make the nav stick nicely and move with the header */
-  nav {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    transition: transform 0.5s ease;
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 300vh; /* Enough scroll space */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9f9f9;
+  color: #222;
+  overflow-x: hidden;
+}
+
+.centered-section {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 90%;
+  max-width: 600px;
+  transition: all 0.6s ease;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 3.5rem;
+  color: #0066ff; /* Bold blue */
+  margin-bottom: 20px;
+}
+
+.project {
+  margin-bottom: 30px;
+}
+
+.project h2 {
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  color: #004bb5;
+}
+
+.project p {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* Positions for animations */
+.offscreen-top {
+  top: 0%;
+  transform: translate(-50%, -120%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.offscreen-small-top {
+  top: 10%;
+  transform: translate(-50%, 0);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+#about-section p {
+  font-size: 1.2rem;
+  max-width: 500px;
+  margin: 0 auto;
+  color: #444;
+}
+
+/* Optional: smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
