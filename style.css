@@ -26,6 +26,9 @@ body, html {
   background: white;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 10;
 }
 
 h1 {
@@ -65,6 +68,16 @@ h1 {
   transform: translate(-50%, 0);
   opacity: 0;
   pointer-events: none;
+  z-index: 5;
+}
+
+/* Slide sections fully offscreen below viewport */
+.offscreen-bottom {
+  top: 150%;
+  transform: translate(-50%, 0);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 5;
 }
 
 /* Optional: smooth scrolling */
