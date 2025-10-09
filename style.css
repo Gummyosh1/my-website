@@ -7,6 +7,14 @@ html, body {
   overflow-x:hidden;
 }
 
+/* MAIN HEADINGS (Connor & About) */
+.main-heading {
+  font-weight:900;
+  font-size:3.5rem;
+  color:#0066ff;
+  margin-bottom:20px;
+}
+
 /* Sections */
 .centered-section {
   position: fixed;
