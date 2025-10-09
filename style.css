@@ -32,6 +32,12 @@ body, html {
   z-index: 10;
 }
 
+/* Make the Projects section wider */
+#projects-section {
+  max-width: 1200px;  /* Expanded width */
+  width: 90%;
+}
+
 /* Headings */
 h1 {
   font-weight: 900;
