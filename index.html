@@ -23,49 +23,65 @@
     </div>
 
     <div class="button-container">
-      <button onclick="scrollToSection('projects')">View Projects</button>
+      <button onclick="scrollToSection('projects')">View Work</button>
       <button onclick="scrollToSection('about')">About Me</button>
     </div>
   </section>
 
+  <!-- PODIUM PROJECTS SECTION -->
   <section id="projects-section" class="centered-section offscreen-bottom">
-    <h1>Projects</h1>
-    <div class="projects-container">
-      <div class="project">
-        <h2>Devlogs</h2>
-        <p>Videos detailing my general thought process and development strategies as I worked through building the app.</p>
+    <div class="podium-container">
+      <!-- Bronze / 3rd place -->
+      <div class="podium bronze">
+        <a href="https://www.youtube.com/@ConnorLaffertyDev" target="_blank" class="project-image-link">
+          <img src="devlogs-image.png" alt="Devlogs" class="podium-image" />
+        </a>
+        <div class="podium-text">
+          <h2>Devlogs</h2>
+          <p>Videos detailing my development process and thoughts while creating games and apps.</p>
+        </div>
       </div>
-      <div class="project">
-        <h2>A Fish In Sea</h2>
-        <p>A gamified to-do list app built in Unity with C#. By completing tasks you receive bait that you can play one of four fishing mini-games with. As you complete tasks and sail through the world on your boat you'll gain new gamemodes, decorations, pets, and so much more! Available on iOS.</p>
+
+      <!-- Gold / 1st place -->
+      <div class="podium gold">
+        <a href="https://apps.apple.com/us/app/a-fish-in-sea/id6499110779" target="_blank" class="project-image-link">
+          <img src="fish-in-sea-image.png" alt="A Fish In Sea" class="podium-image" />
+        </a>
+        <div class="podium-text">
+          <h2>A Fish In Sea</h2>
+          <p>A gamified to-do list app built in Unity with C#. Complete tasks to earn bait and play fishing minigames! Available on iOS.</p>
+        </div>
       </div>
-      <div class="project">
-        <h2>Gummyoshi</h2>
-        <p>My YouTube channel with over 1,300 video uploads, 20,000 subscribers, and 8 million views. Videos center around topics in the gaming industry such as Fortnite, League of Legends, and even Arcane!</p>
+
+      <!-- Silver / 2nd place -->
+      <div class="podium silver">
+        <a href="https://www.youtube.com/@Gummyoshi" target="_blank" class="project-image-link">
+          <img src="gummyoshi-image.png" alt="Gummyoshi" class="podium-image" />
+        </a>
+        <div class="podium-text">
+          <h2>Gummyoshi</h2>
+          <p>My YouTube channel with over 20 K subscribers and 8 M views. Focused on gaming, industry analysis, and creative commentary.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <section id="about-section" class="centered-section offscreen-bottom">
     <h1>About Me</h1>
-    <p>Heyo!! I’m Connor Lafferty, a software developer who loves making things. My main focus is on the gaming industry. I've created one game in C# so far, and plan on creating the next in C++. Though I'm a solo dev, most art in my games is made by my wonderful girlfriend Colbi :D</p>
+    <p>Heyo!! I’m Connor Lafferty, a software developer who loves making things. My main focus is on the gaming industry. I've created one solo-developed game in C# so far and plan to make the next in C++. Most art in my games is made by my wonderful girlfriend Colbi :D</p>
   </section>
 
   <script>
-    // Section scroll behavior
+    // Section scroll logic
     function scrollToSection(section) {
       const vh = window.innerHeight;
-      if (section === 'projects') {
-        window.scrollTo({ top: vh * 1, behavior: 'smooth' });
-      } else if (section === 'about') {
-        window.scrollTo({ top: vh * 2, behavior: 'smooth' });
-      }
+      if (section === 'projects') window.scrollTo({ top: vh * 1, behavior: 'smooth' });
+      else if (section === 'about') window.scrollTo({ top: vh * 2, behavior: 'smooth' });
     }
 
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
       const vh = window.innerHeight;
-
       const nameSection = document.getElementById('name-section');
       const projectsSection = document.getElementById('projects-section');
       const aboutSection = document.getElementById('about-section');
@@ -85,34 +101,27 @@
       }
     });
 
-    // Balatro-style 3D card tilt effect (fixed: removed perspective() from inline transform,
-    // reduced scale slightly and use requestAnimationFrame to keep it smooth)
-    document.querySelectorAll('.project').forEach(card => {
-      let tiltAnimation = null;
-
-      card.addEventListener('mousemove', e => {
-        if (tiltAnimation) cancelAnimationFrame(tiltAnimation);
-        tiltAnimation = requestAnimationFrame(() => {
-          const rect = card.getBoundingClientRect();
+    // Balatro-style tilt effect for images
+    document.querySelectorAll('.podium-image').forEach(img => {
+      let tiltAnim;
+      img.addEventListener('mousemove', e => {
+        if (tiltAnim) cancelAnimationFrame(tiltAnim);
+        tiltAnim = requestAnimationFrame(() => {
+          const rect = img.getBoundingClientRect();
           const x = e.clientX - rect.left;
           const y = e.clientY - rect.top;
           const centerX = rect.width / 2;
           const centerY = rect.height / 2;
-
-          const maxTilt = 10; // degrees
+          const maxTilt = 10;
           const rotateX = ((y - centerY) / centerY) * -maxTilt;
           const rotateY = ((x - centerX) / centerX) * maxTilt;
-
-          // NOTE: perspective() is intentionally NOT included here;
-          // the container (.projects-container) provides the perspective.
-          card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px) scale(1.03)`;
+          img.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
         });
       });
-
-      card.addEventListener('mouseleave', () => {
-        card.style.transition = 'transform 0.35s cubic-bezier(.2,.8,.2,1)';
-        card.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0) scale(1)';
-        setTimeout(() => { card.style.transition = 'transform 0.15s ease'; }, 360);
+      img.addEventListener('mouseleave', () => {
+        img.style.transition = 'transform 0.3s ease';
+        img.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+        setTimeout(() => (img.style.transition = ''), 300);
       });
     });
   </script>
