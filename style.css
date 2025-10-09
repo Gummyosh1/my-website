@@ -58,7 +58,7 @@ h1 {
   align-items: center;              /* keep cards vertically centered inside the box */
   scrollbar-width: thin;
   scrollbar-color: #0066ff #f0f0f0;
-  perspective: 1000px;              /* 3D depth for Balatro effect */
+  perspective: 1300px;              /* 3D depth for Balatro effect */
   transform-style: preserve-3d;
   -webkit-overflow-scrolling: touch;
   scrollbar-gutter: stable both-edges; /* reserve space for scrollbars to avoid layout shift */
