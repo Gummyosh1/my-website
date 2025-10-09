@@ -4,12 +4,12 @@
 html, body {
   height: 300vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f9f9f9;
+  background: linear-gradient(180deg, #f9f9f9, #e0f0ff);
   color: #222;
   overflow-x: hidden;
 }
 
-/* Section container */
+/* Sections */
 .centered-section {
   position: fixed;
   top: 50%;
@@ -28,66 +28,34 @@ html, body {
   z-index: 10;
 }
 
-/* Headers */
-h1 {
-  font-weight: 900;
-  font-size: 3.5rem;
-  color: #0066ff;
-  margin-bottom: 20px;
-}
-
-/* Offscreen transitions */
-.offscreen-top {
-  top: -150%;
-  transform: translate(-50%, 0);
-  opacity: 0;
-  pointer-events: none;
-}
-.offscreen-bottom {
-  top: 150%;
-  transform: translate(-50%, 0);
-  opacity: 0;
-  pointer-events: none;
-}
+.offscreen-top { top: -150%; transform: translate(-50%,0); opacity:0; pointer-events:none; }
+.offscreen-bottom { top: 150%; transform: translate(-50%,0); opacity:0; pointer-events:none; }
 
 /* Buttons */
-.button-container {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
+.button-container { margin-top: 30px; display:flex; justify-content:center; gap:20px; }
 .button-container button {
-  padding: 12px 24px;
-  font-size: 1rem;
-  border: none;
-  background-color: #0066ff;
-  color: white;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  padding: 12px 24px; font-size:1rem; border:none; border-radius:6px;
+  background:#0066ff; color:white; cursor:pointer; transition:background 0.3s ease;
 }
-.button-container button:hover { background-color: #004bb5; }
+.button-container button:hover { background:#004bb5; }
 
-/* Social buttons */
-.social-buttons {
+/* Social Buttons */
+.social-buttons { display:flex; justify-content:center; gap:16px; margin-bottom:20px; }
+.social-buttons img { width:24px; height:24px; cursor:pointer; transition: transform 0.3s ease; }
+.social-buttons img:hover { transform: scale(1.15); filter: brightness(0.8); }
+
+/* PODIUM LAYOUT */
+#projects-section {
+  background: none;
+  box-shadow: none;
+  padding: 60px 0;
+  width: 100%;
+  max-width: none;
   display: flex;
   justify-content: center;
-  gap: 16px;
-  margin-bottom: 20px;
-}
-.social-buttons img {
-  width: 24px;
-  height: 24px;
-  transition: transform 0.3s ease, filter 0.3s ease;
-  cursor: pointer;
-}
-.social-buttons img:hover {
-  transform: scale(1.15);
-  filter: brightness(0.8);
+  align-items: flex-end;
 }
 
-/* Podium layout */
 .podium-container {
   display: flex;
   align-items: flex-end;
@@ -97,58 +65,45 @@ h1 {
   flex-wrap: wrap;
 }
 
-/* Each podium card */
 .podium {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 280px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  border-radius:12px;
+  overflow:hidden;
   transform-style: preserve-3d;
   will-change: transform;
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
 }
 .podium img {
-  width: 100%;
-  border-bottom: 5px solid rgba(0,0,0,0.1);
-  border-radius: 8px 8px 0 0;
+  width:100%;
+  border-radius:8px 8px 0 0;
   transition: transform 0.2s ease;
   will-change: transform;
   transform-style: preserve-3d;
-  cursor: pointer;
+  cursor:pointer;
 }
 .podium-text {
-  padding: 15px;
-  color: #fff;
-  text-align: center;
+  padding:15px;
+  color:#fff;
+  text-align:center;
+  border-radius:0 0 12px 12px;
 }
-.podium-text h2 { margin-bottom: 8px; font-weight: 700; }
-.podium-text p { font-size: 1rem; line-height: 1.4; }
+.podium-text h2 { margin-bottom:8px; font-weight:700; }
+.podium-text p { font-size:1rem; line-height:1.4; }
 
-/* Podium sizes and colors */
-.gold {
-  width: 340px;
-  transform: translateY(-20px);
-}
+/* Podium sizes and vertical positioning */
+.gold { width:340px; transform: translateY(-20px); }
 .gold .podium-text { background: linear-gradient(135deg, #ffcc33, #e0b200); }
-
-.silver {
-  width: 300px;
-  transform: translateY(10px);
-}
+.silver { width:300px; transform: translateY(10px); }
 .silver .podium-text { background: linear-gradient(135deg, #dcdcdc, #b0b0b0); }
-
-.bronze {
-  width: 260px;
-  transform: translateY(30px);
-}
+.bronze { width:260px; transform: translateY(30px); }
 .bronze .podium-text { background: linear-gradient(135deg, #d68b45, #b06a2e); }
 
-/* About section */
+/* About Section */
 #about-section p {
-  font-size: 1.2rem;
-  max-width: 600px;
-  margin: 0 auto;
-  color: #444;
+  font-size:1.2rem;
+  max-width:600px;
+  margin:0 auto;
+  color:#444;
 }
