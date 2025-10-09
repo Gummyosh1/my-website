@@ -11,6 +11,10 @@
 
   <section id="name-section" class="centered-section">
     <h1>Connor Lafferty</h1>
+    <div class="button-container">
+      <button onclick="scrollToSection('projects')">View Projects</button>
+      <button onclick="scrollToSection('about')">About Me</button>
+    </div>
   </section>
 
   <section id="projects-section" class="centered-section offscreen-bottom">
@@ -30,39 +34,41 @@
     <p>Hello! I’m Connor Lafferty, a passionate developer who loves creating elegant and functional web experiences.</p>
   </section>
 
-<script>
-  window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    const vh = window.innerHeight;
-
-    const nameSection = document.getElementById('name-section');
-    const projectsSection = document.getElementById('projects-section');
-    const aboutSection = document.getElementById('about-section');
-
-    if (scrollY < vh / 2) {
-      // Show name centered
-      nameSection.className = 'centered-section';
-      // projects come from bottom
-      projectsSection.className = 'centered-section offscreen-bottom';
-      // about offscreen bottom as well
-      aboutSection.className = 'centered-section offscreen-bottom';
-    } else if (scrollY < vh * 1.5) {
-      // name slides up offscreen-top
-      nameSection.className = 'centered-section offscreen-top';
-      // projects slide in center
-      projectsSection.className = 'centered-section';
-      // about offscreen bottom
-      aboutSection.className = 'centered-section offscreen-bottom';
-    } else {
-      // name offscreen top
-      nameSection.className = 'centered-section offscreen-top';
-      // projects slide up offscreen top
-      projectsSection.className = 'centered-section offscreen-top';
-      // about slides in center
-      aboutSection.className = 'centered-section';
+  <script>
+    // Smooth scroll to sections based on vh height
+    function scrollToSection(section) {
+      const vh = window.innerHeight;
+      if (section === 'projects') {
+        window.scrollTo({ top: vh * 1, behavior: 'smooth' });
+      } else if (section === 'about') {
+        window.scrollTo({ top: vh * 2, behavior: 'smooth' });
+      }
     }
-  });
-</script>
+
+    // Handle scroll animations
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const vh = window.innerHeight;
+
+      const nameSection = document.getElementById('name-section');
+      const projectsSection = document.getElementById('projects-section');
+      const aboutSection = document.getElementById('about-section');
+
+      if (scrollY < vh / 2) {
+        nameSection.className = 'centered-section';
+        projectsSection.className = 'centered-section offscreen-bottom';
+        aboutSection.className = 'centered-section offscreen-bottom';
+      } else if (scrollY < vh * 1.5) {
+        nameSection.className = 'centered-section offscreen-top';
+        projectsSection.className = 'centered-section';
+        aboutSection.className = 'centered-section offscreen-bottom';
+      } else {
+        nameSection.className = 'centered-section offscreen-top';
+        projectsSection.className = 'centered-section offscreen-top';
+        aboutSection.className = 'centered-section';
+      }
+    });
+  </script>
 
 </body>
 </html>
