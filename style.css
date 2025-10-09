@@ -36,7 +36,7 @@ body, html {
 h1 {
   font-weight: 900;
   font-size: 3.5rem;
-  color: #0066ff; /* Bold blue */
+  color: #0066ff;
   margin-bottom: 20px;
 }
 
@@ -106,23 +106,25 @@ h1 {
   background-color: #004bb5;
 }
 
-/* Social Buttons */
+/* Social Media Image Buttons */
 .social-buttons {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 16px;
   margin-bottom: 20px;
 }
 
-.social-buttons a {
-  color: #0066ff;
-  font-size: 24px;
-  transition: transform 0.3s ease, color 0.3s ease;
+.social-buttons img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+  filter: grayscale(0%);
 }
 
-.social-buttons a:hover {
+.social-buttons img:hover {
   transform: scale(1.15);
-  color: #004bb5;
+  filter: brightness(0.8);
 }
 
 /* Smooth scroll */
