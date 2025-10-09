@@ -13,6 +13,7 @@ body, html {
   overflow-x: hidden;
 }
 
+/* Section layout */
 .centered-section {
   position: fixed;
   top: 50%;
@@ -31,6 +32,7 @@ body, html {
   z-index: 10;
 }
 
+/* Headings */
 h1 {
   font-weight: 900;
   font-size: 3.5rem;
@@ -38,6 +40,7 @@ h1 {
   margin-bottom: 20px;
 }
 
+/* Project styles */
 .project {
   margin-bottom: 30px;
 }
@@ -55,6 +58,7 @@ h1 {
   line-height: 1.4;
 }
 
+/* About section paragraph */
 #about-section p {
   font-size: 1.2rem;
   max-width: 500px;
@@ -62,7 +66,7 @@ h1 {
   color: #444;
 }
 
-/* Slide sections fully offscreen above viewport */
+/* Offscreen transitions */
 .offscreen-top {
   top: -150%;
   transform: translate(-50%, 0);
@@ -71,7 +75,6 @@ h1 {
   z-index: 5;
 }
 
-/* Slide sections fully offscreen below viewport */
 .offscreen-bottom {
   top: 150%;
   transform: translate(-50%, 0);
@@ -80,7 +83,30 @@ h1 {
   z-index: 5;
 }
 
-/* Optional: smooth scrolling */
+/* Buttons */
+.button-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.button-container button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: none;
+  background-color: #0066ff;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-container button:hover {
+  background-color: #004bb5;
+}
+
+/* Smooth scroll */
 html {
   scroll-behavior: smooth;
 }
