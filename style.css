@@ -1,40 +1,39 @@
 /* Reset & Base */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
+* { margin:0; padding:0; box-sizing:border-box; }
 html, body {
   height: 300vh;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(180deg, #f9f9f9, #e0f0ff);
-  color: #222;
-  overflow-x: hidden;
+  color:#222;
+  overflow-x:hidden;
 }
 
 /* Sections */
 .centered-section {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  width: 90%;
-  max-width: 1200px;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  text-align:center;
+  width:90%;
+  max-width:1200px;
   transition: all 0.6s ease;
-  padding: 20px;
-  background: white;
-  border-radius: 12px;
+  padding:20px;
+  background:white;
+  border-radius:12px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  opacity: 1;
-  pointer-events: auto;
-  z-index: 10;
+  opacity:1;
+  pointer-events:auto;
+  z-index:10;
 }
 
-.offscreen-top { top: -150%; transform: translate(-50%,0); opacity:0; pointer-events:none; }
-.offscreen-bottom { top: 150%; transform: translate(-50%,0); opacity:0; pointer-events:none; }
+.offscreen-top { top:-150%; transform: translate(-50%,0); opacity:0; pointer-events:none; }
+.offscreen-bottom { top:150%; transform: translate(-50%,0); opacity:0; pointer-events:none; }
 
 /* Buttons */
-.button-container { margin-top: 30px; display:flex; justify-content:center; gap:20px; }
+.button-container { margin-top:30px; display:flex; justify-content:center; gap:20px; }
 .button-container button {
-  padding: 12px 24px; font-size:1rem; border:none; border-radius:6px;
+  padding:12px 24px; font-size:1rem; border:none; border-radius:6px;
   background:#0066ff; color:white; cursor:pointer; transition:background 0.3s ease;
 }
 .button-container button:hover { background:#004bb5; }
@@ -46,23 +45,23 @@ html, body {
 
 /* PODIUM LAYOUT */
 #projects-section {
-  background: none;
-  box-shadow: none;
-  padding: 60px 0;
-  width: 100%;
-  max-width: none;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
+  background:none;
+  box-shadow:none;
+  padding:60px 0;
+  width:100%;
+  max-width:none;
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
 }
 
 .podium-container {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  gap: 40px;
-  perspective: 1000px;
-  flex-wrap: wrap;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  gap:40px;
+  perspective:1000px;
+  flex-wrap:wrap;
 }
 
 .podium {
@@ -72,15 +71,23 @@ html, body {
   border-radius:12px;
   overflow:hidden;
   transform-style: preserve-3d;
-  will-change: transform;
+  will-change: transform, opacity, translate;
   box-shadow:0 10px 25px rgba(0,0,0,0.15);
+  opacity:0;
+  transform: translateY(80px);
+  transition: all 0.6s cubic-bezier(.2,.8,.2,1);
 }
+
+/* When visible in viewport */
+.podium.visible {
+  opacity:1;
+  transform: translateY(0);
+}
+
 .podium img {
   width:100%;
   border-radius:8px 8px 0 0;
   transition: transform 0.2s ease;
-  will-change: transform;
-  transform-style: preserve-3d;
   cursor:pointer;
 }
 .podium-text {
@@ -101,9 +108,4 @@ html, body {
 .bronze .podium-text { background: linear-gradient(135deg, #d68b45, #b06a2e); }
 
 /* About Section */
-#about-section p {
-  font-size:1.2rem;
-  max-width:600px;
-  margin:0 auto;
-  color:#444;
-}
+#about-section p { font-size:1.2rem; max-width:600px; margin:0 auto; color:#444; }
