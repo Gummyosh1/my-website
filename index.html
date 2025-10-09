@@ -13,7 +13,6 @@
   <section id="name-section" class="centered-section">
     <h1>Connor Lafferty</h1>
 
-    <!-- Social Buttons -->
     <div class="social-buttons">
       <a href="https://www.linkedin.com/in/connor-lafferty-911092298" target="_blank">
         <img src="linkedin.png" alt="LinkedIn" />
@@ -23,7 +22,6 @@
       </a>
     </div>
 
-    <!-- Buttons -->
     <div class="button-container">
       <button onclick="scrollToSection('projects')">View Work</button>
       <button onclick="scrollToSection('about')">About Me</button>
@@ -33,10 +31,10 @@
   <!-- PROJECTS / PODIUM SECTION -->
   <section id="projects-section" class="centered-section offscreen-bottom">
     <div class="podium-container">
-      <!-- Bronze / 3rd place -->
+      <!-- Bronze -->
       <div class="podium bronze hidden">
         <a href="https://www.youtube.com/@ConnorLaffertyDev" target="_blank">
-          <img src="devlogs-image.png" alt="Devlogs" class="podium-image" />
+          <img src="devlogs-image.png" alt="Devlogs" />
         </a>
         <div class="podium-text">
           <h2>Devlogs</h2>
@@ -44,10 +42,10 @@
         </div>
       </div>
 
-      <!-- Gold / 1st place -->
+      <!-- Gold -->
       <div class="podium gold hidden">
         <a href="https://apps.apple.com/us/app/a-fish-in-sea/id6499110779" target="_blank">
-          <img src="fish-in-sea-image.png" alt="A Fish In Sea" class="podium-image" />
+          <img src="fish-in-sea-image.png" alt="A Fish In Sea" />
         </a>
         <div class="podium-text">
           <h2>A Fish In Sea</h2>
@@ -55,10 +53,10 @@
         </div>
       </div>
 
-      <!-- Silver / 2nd place -->
+      <!-- Silver -->
       <div class="podium silver hidden">
         <a href="https://www.youtube.com/@Gummyoshi" target="_blank">
-          <img src="gummyoshi-image.png" alt="Gummyoshi" class="podium-image" />
+          <img src="gummyoshi-image.png" alt="Gummyoshi" />
         </a>
         <div class="podium-text">
           <h2>Gummyoshi</h2>
@@ -74,7 +72,6 @@
     <p>Heyo!! I’m Connor Lafferty, a software developer who loves making things. My main focus is on the gaming industry. I've created one solo-developed game in C# so far and plan to make the next in C++. Most art in my games is made by my wonderful girlfriend Colbi :D</p>
   </section>
 
-  <!-- SCRIPTS -->
   <script>
     // Scroll sections
     function scrollToSection(section) {
@@ -83,6 +80,7 @@
       else if (section === 'about') window.scrollTo({ top: vh * 2, behavior: 'smooth' });
     }
 
+    // Section scroll animations
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
       const vh = window.innerHeight;
@@ -105,31 +103,7 @@
       }
     });
 
-    // Balatro tilt effect for podium images
-    document.querySelectorAll('.podium-image').forEach(img => {
-      let tiltAnim;
-      img.addEventListener('mousemove', e => {
-        if (tiltAnim) cancelAnimationFrame(tiltAnim);
-        tiltAnim = requestAnimationFrame(() => {
-          const rect = img.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          const centerX = rect.width / 2;
-          const centerY = rect.height / 2;
-          const maxTilt = 10;
-          const rotateX = ((y - centerY) / centerY) * -maxTilt;
-          const rotateY = ((x - centerX) / centerX) * maxTilt;
-          img.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
-        });
-      });
-      img.addEventListener('mouseleave', () => {
-        img.style.transition = 'transform 0.3s ease';
-        img.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
-        setTimeout(() => (img.style.transition = ''), 300);
-      });
-    });
-
-    // Animate podiums sequentially when section enters viewport
+    // IntersectionObserver for podium entrance animation
     const podiumSection = document.querySelector('#projects-section');
     const podiums = document.querySelectorAll('.podium');
 
@@ -147,6 +121,32 @@
     }, { threshold: 0.5 });
 
     observer.observe(podiumSection);
+
+    // BALATRO EFFECT: APPLY TO ENTIRE PODIUM CONTAINER
+    document.querySelectorAll('.podium').forEach(card => {
+      let animFrame;
+      card.addEventListener('mousemove', e => {
+        if (animFrame) cancelAnimationFrame(animFrame);
+        animFrame = requestAnimationFrame(() => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const maxTilt = 10;
+          const rotateX = ((y - centerY) / centerY) * -maxTilt;
+          const rotateY = ((x - centerX) / centerX) * maxTilt;
+          card.style.transform = `translateY(${card.dataset.offsetY}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+        });
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transition = 'transform 0.3s ease';
+        card.style.transform = `translateY(${card.dataset.offsetY}px) rotateX(0deg) rotateY(0deg) scale(1)`;
+        setTimeout(() => card.style.transition = '', 300);
+      });
+      // Save initial offsetY from CSS translateY
+      card.dataset.offsetY = parseFloat(window.getComputedStyle(card).transform.split(',')[5]) || 0;
+    });
   </script>
 
 </body>
