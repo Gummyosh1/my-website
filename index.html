@@ -11,7 +11,7 @@
 
   <!-- NAME SECTION -->
   <section id="name-section" class="centered-section">
-    <h1>Connor Lafferty</h1>
+    <h1 class="main-heading">Connor Lafferty</h1>
 
     <div class="social-buttons">
       <a href="https://www.linkedin.com/in/connor-lafferty-911092298" target="_blank">
@@ -68,7 +68,7 @@
 
   <!-- ABOUT SECTION -->
   <section id="about-section" class="centered-section offscreen-bottom">
-    <h1>About Me</h1>
+    <h1 class="main-heading">About Me</h1>
     <p>Heyo!! I’m Connor Lafferty, a software developer who loves making things. My main focus is on the gaming industry. I've created one solo-developed game in C# so far and plan to make the next in C++. Most art in my games is made by my wonderful girlfriend Colbi :D</p>
   </section>
 
@@ -144,7 +144,6 @@
         card.style.transform = `translateY(${card.dataset.offsetY}px) rotateX(0deg) rotateY(0deg) scale(1)`;
         setTimeout(() => card.style.transition = '', 300);
       });
-      // Save initial offsetY from CSS translateY
       card.dataset.offsetY = parseFloat(window.getComputedStyle(card).transform.split(',')[5]) || 0;
     });
   </script>
