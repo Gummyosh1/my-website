@@ -51,13 +51,17 @@ h1 {
   display: flex;
   gap: 40px;
   overflow-x: auto;
+  overflow-y: hidden;               /* Prevent vertical scroll from appearing */
   padding: 10px;
   scroll-snap-type: x mandatory;
   justify-content: center;
+  align-items: center;              /* keep cards vertically centered inside the box */
   scrollbar-width: thin;
   scrollbar-color: #0066ff #f0f0f0;
-  perspective: 1000px; /* 3D depth for Balatro effect */
+  perspective: 1000px;              /* 3D depth for Balatro effect */
   transform-style: preserve-3d;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: stable both-edges; /* reserve space for scrollbars to avoid layout shift */
 }
 
 /* Custom scrollbar (for Chrome, Edge, Safari) */
@@ -88,6 +92,8 @@ h1 {
   transition: transform 0.15s ease, box-shadow 0.15s ease;
   transform-style: preserve-3d;
   will-change: transform;
+  transform-origin: center center;
+  backface-visibility: hidden;
 }
 
 .project:hover {
