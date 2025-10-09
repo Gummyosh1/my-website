@@ -9,31 +9,33 @@
 </head>
 <body>
 
+  <!-- NAME SECTION -->
   <section id="name-section" class="centered-section">
     <h1>Connor Lafferty</h1>
 
-    <!-- Social Buttons with icons -->
+    <!-- Social Buttons -->
     <div class="social-buttons">
-      <a href="https://www.linkedin.com/in/connor-lafferty-911092298" target="_blank" aria-label="LinkedIn">
+      <a href="https://www.linkedin.com/in/connor-lafferty-911092298" target="_blank">
         <img src="linkedin.png" alt="LinkedIn" />
       </a>
-      <a href="https://github.com/gummyosh1" target="_blank" aria-label="GitHub">
+      <a href="https://github.com/gummyosh1" target="_blank">
         <img src="github.png" alt="GitHub" />
       </a>
     </div>
 
+    <!-- Buttons -->
     <div class="button-container">
       <button onclick="scrollToSection('projects')">View Work</button>
       <button onclick="scrollToSection('about')">About Me</button>
     </div>
   </section>
 
-  <!-- PODIUM PROJECTS SECTION -->
+  <!-- PROJECTS / PODIUM SECTION -->
   <section id="projects-section" class="centered-section offscreen-bottom">
     <div class="podium-container">
       <!-- Bronze / 3rd place -->
       <div class="podium bronze">
-        <a href="https://www.youtube.com/@CKCStudiosNSuch" target="_blank" class="project-image-link">
+        <a href="https://www.youtube.com/@ConnorLaffertyDev" target="_blank">
           <img src="devlogs-image.png" alt="Devlogs" class="podium-image" />
         </a>
         <div class="podium-text">
@@ -44,7 +46,7 @@
 
       <!-- Gold / 1st place -->
       <div class="podium gold">
-        <a href="https://apps.apple.com/us/app/a-fish-in-sea/id6499110779" target="_blank" class="project-image-link">
+        <a href="https://apps.apple.com/us/app/a-fish-in-sea/id6499110779" target="_blank">
           <img src="fish-in-sea-image.png" alt="A Fish In Sea" class="podium-image" />
         </a>
         <div class="podium-text">
@@ -55,7 +57,7 @@
 
       <!-- Silver / 2nd place -->
       <div class="podium silver">
-        <a href="https://www.youtube.com/@Gummyoshi" target="_blank" class="project-image-link">
+        <a href="https://www.youtube.com/@Gummyoshi" target="_blank">
           <img src="gummyoshi-image.png" alt="Gummyoshi" class="podium-image" />
         </a>
         <div class="podium-text">
@@ -66,13 +68,15 @@
     </div>
   </section>
 
+  <!-- ABOUT SECTION -->
   <section id="about-section" class="centered-section offscreen-bottom">
     <h1>About Me</h1>
     <p>Heyo!! I’m Connor Lafferty, a software developer who loves making things. My main focus is on the gaming industry. I've created one solo-developed game in C# so far and plan to make the next in C++. Most art in my games is made by my wonderful girlfriend Colbi :D</p>
   </section>
 
+  <!-- SCRIPTS -->
   <script>
-    // Section scroll logic
+    // Scroll sections
     function scrollToSection(section) {
       const vh = window.innerHeight;
       if (section === 'projects') window.scrollTo({ top: vh * 1, behavior: 'smooth' });
@@ -101,7 +105,7 @@
       }
     });
 
-    // Balatro-style tilt effect for images
+    // Balatro tilt effect for podium images
     document.querySelectorAll('.podium-image').forEach(img => {
       let tiltAnim;
       img.addEventListener('mousemove', e => {
